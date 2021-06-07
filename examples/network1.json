@@ -3,6 +3,7 @@
     "devices": [{
         "name": "switch1",
         "type": "layer2",
+        "mgmt_ip": "192.168.255.2",
         "ports": [
             {
                 "name": "eth1/1",
@@ -21,6 +22,7 @@
    {
        "name": "router1",
        "type": "layer3",
+       "mgmt_ip": "192.168.0.1",
        "vlans": [
            {"label": "mgmt", "id": 1},
            {"label": "corporate", "id": 2},

@@ -1,0 +1,37 @@
+{ 
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Network schema",
+    "type": "object",
+    "properties": {
+        "banner": {
+            "description": "Login banner",
+            "type": "string"
+        },
+        "devices": {
+            "description": "List of devices on the network",
+            "type": "array",
+            "items": { "$ref": "#/$defs/network_device" }
+        }
+    },
+    "$defs": {
+        "network_device": {
+            "type": "object",
+            "required": ["name", "type"],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Device name"
+                },
+                "mgmt_ip": {
+                    "type": "string",
+                    "format": "ipv4",
+                    "description": "Management IP address"
+                },
+                "type": { 
+                    "type": "string",
+                    "enum": ["layer2", "layer3"]
+                }
+            }
+        }
+    }
+}
