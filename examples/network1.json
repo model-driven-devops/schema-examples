@@ -1,0 +1,38 @@
+{
+    "banner": "Welcome to our network",
+    "devices": [{
+        "name": "switch1",
+        "type": "layer2",
+        "ports": [
+            {
+                "name": "eth1/1",
+                "label": "router1",
+                "vlan": 2,
+                "mode": "trunk"
+            },
+            {
+                "name": "eth1/2",
+                "label": "server1",
+                "vlan": 4,
+                "mode": "access"
+            }
+        ]
+    },
+   {
+       "name": "router1",
+       "type": "layer3",
+       "vlans": [
+           {"label": "mgmt", "id": 1},
+           {"label": "corporate", "id": 2},
+           {"label": "dmz", "id": 4}
+       ],
+       "ports": [
+           {
+               "name": "gi0/1",
+               "label": "switch1",
+               "vlan": 2,
+               "mode": "trunk"
+           }
+       ]
+   }]
+}
