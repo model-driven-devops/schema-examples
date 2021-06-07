@@ -30,6 +30,23 @@
                 "type": { 
                     "type": "string",
                     "enum": ["layer2", "layer3"]
+                },
+                "ports": {
+                    "type": "array",
+                    "items": { "$ref": "#/$defs/network_port" }
+                }
+            }
+        },
+        "network_port": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+                "name": { "type": "string" },
+                "label": {"type": "string" },
+                "vlan":  {"type": "integer" },
+                "mode": {
+                    "type": "string",
+                    "enum": ["trunk", "access"]
                 }
             }
         }

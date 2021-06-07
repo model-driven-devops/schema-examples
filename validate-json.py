@@ -8,7 +8,6 @@ with open("schemas/network.json") as schemafile:
 with open("examples/network1.json") as inputfile:
     input = json.loads(inputfile.read())
 
-print(schema)
 validate(instance=input, schema=schema)
 
 
