@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Network banner schema",
+  "type": "object",
+  "required": ["openconfig-system:system"],
+  "properties": {
+    "openconfig-system:system": {
+      "type": "object",
+      "required": ["config"],
+      "properties": {
+        "config": {
+          "type": "object",
+          "required": ["login-banner", "motd-banner"],
+          "properties": {
+            "login-banner": {
+              "type": "string",
+              "description": "Login banner",
+              "pattern": "Only authorized users may access this system."
+            },
+            "motd-banner": {
+              "type": "string",
+              "description": "Login banner",
+              "pattern": "Only authorized users may access this system."
+            }
+          }
+        }
+      }
+    }
+  }
+}
