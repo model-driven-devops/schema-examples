@@ -1,0 +1,19 @@
+openconfig-system:system:
+  type: dict
+  allow_unknown: True
+  schema:
+    config:
+      type: dict
+      schema:
+        domain-name:
+          type: string
+        login-banner:
+          type: string
+          empty: False
+          required: True
+          regex: Only authorized users may access this system.
+        motd-banner:
+          type: string
+          empty: False
+          required: True
+          regex: Only authorized users may access this system.

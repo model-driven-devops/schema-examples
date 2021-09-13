@@ -1,0 +1,60 @@
+{
+  "openconfig-system:system": {
+    "aaa": {
+      "authentication": {
+        "admin-user": {
+          "config": {
+            "admin-password": "admin"
+          }
+        },
+        "config": {
+          "authentication-method": [
+            "LOCAL"
+          ]
+        }
+      },
+      "authorization": {
+        "config": {
+          "authorization-method": [
+            "LOCAL"
+          ]
+        }
+      }
+    },
+    "clock": {
+      "config": {
+        "timezone-name": "EDT -4 0"
+      }
+    },
+    "config": {
+      "domain-name": "domain.com",
+      "hostname": "router1",
+      "login-banner": "Only authorized users may access this system.",
+      "motd-banner": "Only authorized users may access this system."
+    },
+    "dns": {
+      "servers": {
+        "server": [
+          {
+            "address": "1.1.1.1",
+            "config": {
+              "address": "1.1.1.1"
+            }
+          },
+          {
+            "address": "2.2.2.2",
+            "config": {
+              "address": "2.2.2.2"
+            }
+          }
+        ]
+      }
+    },
+    "ssh-server": {
+      "config": {
+        "enable": true,
+        "protocol-version": "V2"
+      }
+    }
+  }
+}

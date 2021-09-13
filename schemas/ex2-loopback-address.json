@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OpenConfig Local Schema - Loopback",
+  "type": "object",
+  "required": ["openconfig-interfaces:interfaces"],
+  "properties": {
+    "openconfig-interfaces:interfaces": {
+      "description": "top level object",
+      "type": "object",
+      "required": ["interface"],
+      "properties": {
+        "interface": {
+          "type": "array",
+          "contains": {
+            "type": "object",
+            "required": ["name", "subinterfaces"],
+            "properties": {
+              "name": {
+                "description": "Interface name",
+                "type": "string",
+                "pattern": "^Loopback0$"
+              },
+              "subinterfaces": {
+                "description": "Sub interfaces",
+                "type": "object",
+                "required": [ "subinterface"],
+                "properties": {
+                  "subinterface": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": ["index", "openconfig-if-ip:ipv4"],
+                      "properties": {
+                        "index": {
+                          "type": "integer",
+                          "consts": 0
+                        },
+                        "openconfig-if-ip:ipv4": {
+                          "type": "object",
+                          "required": ["addresses"],
+                          "properties": {
+                            "addresses": {
+                              "type": "object",
+                              "required": ["address"],
+                              "properties": {
+                                "address": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "required": ["ip"],
+                                    "properties": {
+                                      "ip": {
+                                        "type": "string",
+                                        "in_subnet": "10.10.0.0/24"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

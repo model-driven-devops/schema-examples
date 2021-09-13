@@ -1,0 +1,76 @@
+{
+  "openconfig-interfaces:interfaces": {
+    "interface": [
+      {
+        "config": {
+          "description": "Loopback 0",
+          "enabled": true,
+          "name": "Loopback0",
+          "type": "softwareLoopback"
+        },
+        "name": "Loopback0",
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "config": {
+                "index": 0
+              },
+              "index": 0,
+              "openconfig-if-ip:ipv4": {
+                "addresses": {
+                  "address": [
+                    {
+                      "config": {
+                        "ip": "10.10.0.1",
+                        "prefix-length": "24"
+                      },
+                      "ip": "10.10.0.1"
+                    }
+                  ]
+                },
+                "config": {
+                  "dhcp-client": false
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "config": {
+          "description": "Loopback 0",
+          "enabled": true,
+          "name": "Loopback1",
+          "type": "softwareLoopback"
+        },
+        "name": "Loopback1",
+        "subinterfaces": {
+          "subinterface": [
+            {
+              "config": {
+                "index": 0
+              },
+              "index": 0,
+              "openconfig-if-ip:ipv4": {
+                "addresses": {
+                  "address": [
+                    {
+                      "config": {
+                        "ip": "10.10.0.1",
+                        "prefix-length": "24"
+                      },
+                      "ip": "10.10.0.1"
+                    }
+                  ]
+                },
+                "config": {
+                  "dhcp-client": false
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

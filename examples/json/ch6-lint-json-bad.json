@@ -1,0 +1,17 @@
+{
+    "openconfig-system:system": {
+        "dns": {
+            "servers": {
+                "server": [
+                    {
+                        "address": "192.168.0.2",
+                        "config": {
+                            "address": "192.168.0.2",
+                            "port" 53
+                        }
+                    }
+                ]
+            }
+        }    
+    }
+}
