@@ -1,0 +1,24 @@
+title: CISC-ND-000460
+description: >
+  The Cisco switch must be configured to limit privileges to change the software resident
+  within software libraries.
+type: object
+if:
+  properties:
+    tailf-ned-cisco-ios:logging:
+      type: object
+      properties:
+        persistent:
+          type: object
+      required:
+        - persistent
+then:
+  not:
+    properties:
+      tailf-ned-cisco-ios:file:
+        type: object
+        properties:
+          privilege:
+            type: integer
+    required:
+      - tailf-ned-cisco-ios:file
