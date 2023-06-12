@@ -1,0 +1,23 @@
+metadata:
+  Title: CISC-ND-001000 Schema
+  Date: 07-Jun-2023
+  Vul ID: V-220600
+  Rule ID: SV-220600r879733_rule
+  Severity: CAT II
+  Description: >
+    The Cisco switch must be configured to generate an alert for all audit failure events
+type: object
+properties:
+  tailf-ned-cisco-ios:logging:
+    type: object
+    properties:
+      trap:
+        type: string
+        enum:
+          - error
+          - warning
+          - notice
+          - informational
+          - critical
+    required:
+      - trap
