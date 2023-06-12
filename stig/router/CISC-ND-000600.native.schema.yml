@@ -1,0 +1,27 @@
+title: CISC-ND-000600 Schema
+description: >
+  The Cisco switch must be configured to enforce password complexity by requiring that at
+  least one special character be used.
+type: object
+properties:
+  tailf-ned-cisco-ios:aaa:
+    type: object
+    properties:
+      new-model:
+        type: array
+      common-criteria:
+        type: object
+        properties:
+          policy:
+            type: array
+            items:
+              type: object
+              properties:
+                special-case:
+                  type: number
+                  minimum: 1
+            required:
+              - special-case
+    required:
+      - new-model
+      - common-criteria
