@@ -1,7 +1,6 @@
-title: CISC-ND-000600 Schema
+title: CISC-ND-000550 Schema
 description: >
-  The Cisco switch must be configured to enforce password complexity by requiring that at
-  least one special character be used.
+  The Cisco switch must be configured to enforce a minimum 15-character password length.
 type: object
 properties:
   tailf-ned-cisco-ios:aaa:
@@ -17,11 +16,11 @@ properties:
             items:
               type: object
               properties:
-                special-case:
+                min-length:
                   type: number
-                  minimum: 1
+                  minimum: 15
               required:
-                - special-case
+                - min-length
     required:
       - new-model
       - common-criteria

@@ -1,0 +1,34 @@
+metadata:
+  Title: CISC-ND-000250 Schema
+  Date: 07-Jun-2023
+  Vul ID: V-220599
+  Rule ID: SV-220599r879730_rule
+  STIG ID: CISC-ND-000980
+  Severity: CAT II
+  Description: >
+    The Cisco switch must be configured to allocate audit record storage capacity in
+    accordance with organization-defined audit record storage requirements.
+type: object
+properties:
+  openconfig-system:system:
+    type: object
+    properties:
+      openconfig-system:logging:
+        type: object
+        properties:
+          openconfig-system-ext:buffered:
+            type: object
+            properties:
+              openconfig-system-ext:config:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    openconfig-system-ext:enabled:
+                      type: boolean
+                      const: true
+                    openconfig-system-ext:buffer-size:
+                      type: string
+                  required:
+                    - openconfig-system-ext:enabled
+                    - openconfig-system-ext:buffer-size

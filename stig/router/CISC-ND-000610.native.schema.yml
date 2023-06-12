@@ -20,8 +20,8 @@ properties:
                 char-changes:
                   type: number
                   minimum: 8
-            required:
-              - char-changes
+              required:
+                - char-changes
     required:
       - new-model
       - common-criteria

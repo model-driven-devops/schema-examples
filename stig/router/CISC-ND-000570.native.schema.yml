@@ -1,7 +1,12 @@
-title: CISC-ND-000600 Schema
-description: >
-  The Cisco switch must be configured to enforce password complexity by requiring that at
-  least one special character be used.
+metadata:
+  Title: CISC-ND-000570 Schema
+  Date: 07-Jun-2023
+  Vul_ID: V-220601
+  Rule_ID: SV-220601r879746_rule
+  Severity: CAT II
+  Description: >
+    The Cisco switch must be configured to enforce password complexity by requiring that at
+    least one upper-case character be used.
 type: object
 properties:
   tailf-ned-cisco-ios:aaa:
@@ -17,11 +22,11 @@ properties:
             items:
               type: object
               properties:
-                special-case:
+                upper-case:
                   type: number
                   minimum: 1
               required:
-                - special-case
+                - upper-case
     required:
       - new-model
       - common-criteria

@@ -1,7 +1,7 @@
-title: CISC-ND-000600 Schema
+title: CISC-ND-000590 Schema
 description: >
   The Cisco switch must be configured to enforce password complexity by requiring that at
-  least one special character be used.
+  least one numeric character be used.
 type: object
 properties:
   tailf-ned-cisco-ios:aaa:
@@ -17,11 +17,11 @@ properties:
             items:
               type: object
               properties:
-                special-case:
+                numeric-count:
                   type: number
                   minimum: 1
               required:
-                - special-case
+                - numeric-count
     required:
       - new-model
       - common-criteria
