@@ -1,0 +1,29 @@
+title: CISC-ND-000610 Schema
+description: >
+  The Cisco switch must be configured to require that when a password is changed, the characters
+  are changed in at least eight of the positions within the password.
+type: object
+properties:
+  tailf-ned-cisco-ios:aaa:
+    type: object
+    properties:
+      new-model:
+        type: array
+      common-criteria:
+        type: object
+        properties:
+          policy:
+            type: array
+            items:
+              type: object
+              properties:
+                char-changes:
+                  type: number
+                  minimum: 8
+            required:
+              - char-changes
+    required:
+      - new-model
+      - common-criteria
+
+
