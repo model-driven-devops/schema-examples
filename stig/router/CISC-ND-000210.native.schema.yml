@@ -1,0 +1,19 @@
+---
+metadata:
+  title: CISC-ND-000210 Schema
+  date: 07-Jun-2023
+  vul_ID: V-220578
+  rule_ID: SV-220578r879554_rule
+  STIG_ID: CISC-ND-000210
+  severity: CAT II
+  description: >
+    The Cisco device must be configured to audit all administrator activity.
+type: object
+properties:
+  tailf-ned-cisco-ios:logging:
+    type: object
+    properties:
+      userinfo:
+        type: array
+    required:
+      - userinfo

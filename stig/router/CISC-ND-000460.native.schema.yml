@@ -1,7 +1,14 @@
-title: CISC-ND-000460
-description: >
-  The Cisco switch must be configured to limit privileges to change the software resident
-  within software libraries.
+---
+metadata:
+  title: CISC-ND-000460
+  date: 07-Jun-2023
+  vul_ID: V-220585
+  rule_ID: SV-220585r879586_rule
+  STIG_ID: CISC-ND-000460
+  severity: CAT II
+  description: >
+    The Cisco switch must be configured to limit privileges to change the
+    software resident within software libraries.
 type: object
 if:
   properties:

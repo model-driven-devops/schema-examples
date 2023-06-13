@@ -1,15 +1,16 @@
 ---
-title: CISC-ND-001200 Schema
+metadata:
+  title: CISC-ND-001200 Schema
+  date: 07-Jun-2023
+  vul_ID: V-220607
+  rule_ID: SV-220607r879784_rule
+  STIG_ID: CISC-ND-001200
+  severity: CAT I
+  description: >
+    The Cisco switch must be configured to use FIPS-validated Keyed-Hash
+    Message Authentication Code (HMAC) to protect the integrity of
+    remote maintenance sessions.
 type: object
-description: >
-  Unapproved mechanisms that are used for authentication to the cryptographic module are not verified
-  and therefore cannot be relied upon to provide confidentiality or integrity, and DoD data may be
-  compromised. Nonlocal maintenance and diagnostic activities are those activities conducted by
-  individuals communicating through a network, either an external network (e.g., the Internet) or an
-  internal network. Currently, HMAC is the only FIPS-approved algorithm for generating and verifying
-  message/data authentication codes in accordance with FIPS 198-1. Products that are FIPS 140-2
-  validated will have an HMAC that meets specification; however, the option must be configured for
-  use as the only message authentication code used for authentication to cryptographic modules.
 required:
   - openconfig-system:system
 properties:
@@ -21,21 +22,22 @@ properties:
       openconfig-system:ssh-server:
         type: object
         required:
-        - openconfig-system-ext:algorithm
+          - openconfig-system-ext:algorithm
         properties:
           openconfig-system-ext:algorithm:
             type: object
             required:
-            - openconfig-system-ext:config
+              - openconfig-system-ext:config
             properties:
               openconfig-system-ext:config:
                 type: object
                 required:
-                - openconfig-system-ext:mac
+                  - openconfig-system-ext:mac
                 properties:
                   openconfig-system-ext:mac:
                     type: array
                     items:
                       type: string
-                      enum: 
+                      enum:
                         - hmac-sha2-256
+                        - hmac-sha2-512

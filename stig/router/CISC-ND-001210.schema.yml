@@ -1,13 +1,15 @@
 ---
-title: CISC-ND-001210 Schema
+metadata:
+  title: CISC-ND-001210 Schema
+  date: 07-Jun-2023
+  vul_ID: V-220608
+  rule_ID: SV-220608r879785_rule
+  STIG_ID: CISC-ND-001210
+  severity: CAT I
+  description: >
+    The Cisco switch must be configured to implement cryptographic mechanisms
+    to protect the confidentiality of remote maintenance sessions.
 type: object
-description: >
-  This requires the use of secure protocols instead of their unsecured counterparts,
-  such as SSH instead of telnet, SCP instead of FTP, and HTTPS instead of HTTP.
-  If unsecured protocols (lacking cryptographic mechanisms) are used for sessions,
-  the contents of those sessions will be susceptible to eavesdropping, potentially
-  putting sensitive data (including administrator passwords) at risk of compromise
-  and potentially allowing hijacking of maintenance sessions.
 required:
   - openconfig-system:system
 properties:
@@ -19,13 +21,13 @@ properties:
       openconfig-system:ssh-server:
         type: object
         required:
-        - openconfig-system:config
-        - openconfig-system-ext:algorithm
+          - openconfig-system:config
+          - openconfig-system-ext:algorithm
         properties:
           openconfig-system:config:
             type: object
             required:
-            - openconfig-system:protocol-version
+              - openconfig-system:protocol-version
             properties:
               openconfig-system:protocol-version:
                 type: string
@@ -33,12 +35,12 @@ properties:
           openconfig-system-ext:algorithm:
             type: object
             required:
-            - openconfig-system-ext:config
+              - openconfig-system-ext:config
             properties:
               openconfig-system-ext:config:
                 type: object
                 required:
-                - openconfig-system-ext:encryption
+                  - openconfig-system-ext:encryption
                 properties:
                   openconfig-system-ext:encryption:
                     type: array

@@ -1,7 +1,15 @@
-title: CISC-ND-000610 Schema
-description: >
-  The Cisco switch must be configured to require that when a password is changed, the characters
-  are changed in at least eight of the positions within the password.
+---
+metadata:
+  title: CISC-ND-000610 Schema
+  date: 07-Jun-2023
+  vul_ID: V-220594
+  rule_ID: SV-220594r879607_rule
+  STIG_ID: CISC-ND-000610
+  severity: CAT II
+  description: >
+    The Cisco switch must be configured to require that when a password
+    is changed, the characters are changed in at least eight of the
+    positions within the password.
 type: object
 properties:
   tailf-ned-cisco-ios:aaa:
@@ -25,5 +33,3 @@ properties:
     required:
       - new-model
       - common-criteria
-
-

@@ -1,6 +1,13 @@
-title: CISC-ND-000550 Schema
-description: >
-  The Cisco switch must be configured to enforce a minimum 15-character password length.
+---
+metadata:
+  title: CISC-ND-000550 Schema
+  date: 07-Jun-2023
+  vul_ID: V-220590
+  rule_ID: SV-220590r879603_rule
+  STIG_ID: CISC-ND-000570
+  description: >
+    The Cisco switch must be configured to enforce a minimum 15-character
+    password length.
 type: object
 properties:
   tailf-ned-cisco-ios:aaa:

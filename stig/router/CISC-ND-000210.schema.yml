@@ -1,12 +1,14 @@
 ---
-title: CISC-ND-000210 Schema
+metadata:
+  title: CISC-ND-000210 Schema
+  date: 07-Jun-2023
+  vul ID: V-220578
+  rule ID: SV-220578r879554_rule
+  STIG ID: CISC-ND-000210
+  severity: CAT II
+  description: >
+    The Cisco device must be configured to audit all administrator activity.
 type: object
-description: >
-  This requirement supports non-repudiation of actions taken by an administrator and is required in order to
-  maintain the integrity of the configuration management process. All configuration changes to the network
-  device are logged, and administrators authenticate with two-factor authentication before gaining administrative
-  access. Together, these processes will ensure the administrators can be held accountable for the configuration
-  changes they implement. To meet this requirement, the network device must log administrator access and activity.
 required:
   - openconfig-system:system
 properties:
@@ -18,7 +20,7 @@ properties:
       openconfig-system-ext:services:
         type: object
         required:
-          - openconfig-system-ext:config 
+          - openconfig-system-ext:config
         properties:
           openconfig-system-ext:config:
             type: object

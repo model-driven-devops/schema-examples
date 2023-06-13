@@ -1,0 +1,46 @@
+---
+metadata:
+  title: CISC-ND-000280 Schema
+  date: 07-Jun-2023
+  vul_ID: V-220580
+  rule_ID: SV-220580r879564_rule
+  STIG_ID: CISC-ND-000280
+  severity: CAT II
+  description: >
+    The Cisco switch must produce audit records containing information to
+    establish when (date and time) the events occurred.
+type: object
+required:
+  - openconfig-system:system
+properties:
+  openconfig-system:system:
+    type: object
+    required:
+      - openconfig-system-ext:timestamps
+    properties:
+      openconfig-system-ext:timestamps:
+        type: object
+        required:
+          - openconfig-system-ext:logging
+        properties:
+          openconfig-system-ext:logging:
+            type: object
+            required:
+              - openconfig-system-ext:config
+            properties:
+              openconfig-system-ext:config:
+                type: object
+                required:
+                  - openconfig-system-ext:enabled
+                  - openconfig-system-ext:datetime
+                  - openconfig-system-ext:localtime
+                properties:
+                  openconfig-system-ext:enabled:
+                    type: boolean
+                    const: true
+                  openconfig-system-ext:datetime:
+                    type: boolean
+                    const: true
+                  openconfig-system-ext:localtime:
+                    type: boolean
+                    const: true

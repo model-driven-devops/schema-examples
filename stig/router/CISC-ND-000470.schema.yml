@@ -1,16 +1,14 @@
 ---
-title: CISC-ND-000470 Schema
+metadata:
+  title: CISC-ND-000470 Schema
+  date: 07-Jun-2023
+  vul_ID: V-220586
+  rule_ID: SV-220586r892388_rule
+  STIG_ID: CISC-ND-000470
+  description: >
+    The Cisco switch must be configured to prohibit the use of all unnecessary
+    and non-secure functions and services.
 type: object
-description: >
-  Network devices are capable of providing a wide variety of functions and services. Some of the functions
-  and services provided by default may not be necessary to support essential organizational operations.
-  Additionally, it is sometimes convenient to provide multiple services from a single component
-  (e.g., email and web services); however, doing so increases risk over limiting the services provided by
-  any one component. To support the requirements and principles of least functionality, the network device
-  must support the organizational requirements providing only essential capabilities and limiting the use of ports,
-  protocols, and/or services to only those required, authorized, and approved. Some network devices have
-  capabilities enabled by default; if these capabilities are not necessary, they must be disabled. If a
-  particular capability is used, then it must be documented and approved.
 required:
   - openconfig-system:system
 properties:

@@ -1,15 +1,15 @@
-title: CISC-ND-000720 Schema
+---
+metadata:
+  title: CISC-ND-000720 Schema
+  date: 07-Jun-2023
+  vul_ID: V-220596
+  rule_ID: SV-220596r916304_rule
+  STIG_ID: CISC-ND-000720
+  severity: CAT 1
+  description: >
+    The Cisco switch must be configured to terminate all network connections
+    associated with device management after five minutes of inactivity.
 type: object
-description: >
- Terminating an idle session within a short time period reduces the window of opportunity for unauthorized
- personnel to take control of a management session enabled on the console or console port that has been
- left unattended. In addition, quickly terminating an idle session will also free up resources committed
- by the managed network element. Terminating network connections associated with communications sessions
- includes, for example, de-allocating associated TCP/IP address/port pairs at the operating system level,
- or de-allocating networking assignments at the application level if multiple application sessions are
- using a single, operating system-level network connection. This does not mean that the device terminates
- all sessions or network access; it only ends the inactive session and releases the resources associated
- with that session.
 required:
   - openconfig-system:system
 properties:
@@ -17,6 +17,8 @@ properties:
     type: object
     required:
       - openconfig-system:config
+      - openconfig-system:ssh-server
+      - openconfig-system-ext:services
     properties:
       openconfig-system:config:
         type: object
@@ -26,5 +28,37 @@ properties:
           openconfig-system-ext:console-exec-timeout-seconds:
             type: number
             minimum: 0
-            maximum: 600
-
+            maximum: 300
+      openconfig-system:ssh-server:
+        type: object
+        required:
+          - openconfig-system:config
+        properties:
+          openconfig-system:config:
+            type: object
+            required:
+              - openconfig-system:timeout
+            properties:
+              openconfig-system:timeout:
+                type: number
+                minimum: 0
+                maximum: 300
+      openconfig-system-ext:services:
+        type: object
+        properties:
+          openconfig-system-ext:http:
+            type: object
+            properties:
+              openconfig-system-ext:ip-http-timeout-policy:
+                type: object
+                properties:
+                  openconfig-system-ext:idle:
+                    type: object
+                    properties:
+                      openconfig-system-ext:config:
+                        type: object
+                        properties:
+                          openconfig-system-ext:connection:
+                            type: number
+                            minimum: 0
+                            maximum: 300

@@ -1,7 +1,14 @@
-title: CISC-ND-000580 Schema
-description: >
-  The Cisco switch must be configured to enforce password complexity by requiring that at
-  least one lower-case character be used
+---
+metadata:
+  title: CISC-ND-000580 Schema
+  date: 07-Jun-2023
+  vul_ID: V-220591
+  rule_ID: SV-220591r879604_rule
+  STIG_ID: CISC-ND-000580
+  severity: CAT II
+  description: >
+    The Cisco switch must be configured to enforce password complexity by
+    requiring that at least one lower-case character be used
 type: object
 properties:
   tailf-ned-cisco-ios:aaa:
