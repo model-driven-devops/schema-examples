@@ -1,0 +1,13 @@
+---
+metadata:
+  title: CISC-ND-000010
+  date: 07-Jun-2023
+  vul_ID: V-215807
+  rule_ID: SV-215807r879511_rule
+  STIG_ID: CISC-ND-000010
+  severity: CAT II
+  description: >
+    The Cisco router must be configured to limit the number of
+    concurrent management sessions to an organization-defined
+    number.
+type: object
