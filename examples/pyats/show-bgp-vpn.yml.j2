@@ -1,0 +1,110 @@
+type: object
+properties:
+  bgp_id:
+    type: integer
+  vrf:
+    type: object
+    properties:
+      {{ check_vars.vrf }}:
+        type: object
+        properties:
+          neighbor:
+            type: object
+            properties:
+              {{ check_vars.neighbor }}:
+                type: object
+                properties:
+                  address_family:
+                    type: object
+                    properties:
+                      vpnv4 u:
+                        type: object
+                        properties:
+                          activity_paths:
+                            type: string
+                          activity_prefixes:
+                            type: string
+                          as:
+                            type: integer
+                            const: {{ check_vars.as_number }}
+                          attribute_entries:
+                            type: string
+                          bgp_table_version:
+                            type: integer
+                          cache_entries:
+                            type: object
+                            properties:
+                              filter-list:
+                                type: object
+                                properties:
+                                  memory_usage:
+                                    type: integer
+                                  total_entries:
+                                    type: integer
+                              route-map:
+                                type: object
+                                properties:
+                                  memory_usage:
+                                    type: integer
+                                  total_entries:
+                                    type: integer
+                          community_entries:
+                            type: object
+                            properties:
+                              memory_usage:
+                                type: integer
+                              total_entries:
+                                type: integer
+                          entries:
+                            type: object
+                            properties:
+                              rrinfo:
+                                type: object
+                                properties:
+                                  memory_usage:
+                                    type: integer
+                                  total_entries:
+                                    type: integer
+                          input_queue:
+                            type: integer
+                          local_as:
+                            type: integer
+                          msg_rcvd:
+                            type: integer
+                          msg_sent:
+                            type: integer
+                          output_queue:
+                            type: integer
+                          path:
+                            type: object
+                            properties:
+                              memory_usage:
+                                type: integer
+                              total_entries:
+                                type: integer
+                          prefixes:
+                            type: object
+                            properties:
+                              memory_usage:
+                                type: integer
+                              total_entries:
+                                type: integer
+                          route_identifier:
+                            type: string
+                          routing_table_version:
+                            type: integer
+                          scan_interval:
+                            type: integer
+                          state_pfxrcd:
+                            type: string
+                          tbl_ver:
+                            type: integer
+                          total_memory:
+                            type: integer
+                          up_down:
+                            type: string
+                          version:
+                            type: integer
+required:
+  - bgp_id
+  - vrf

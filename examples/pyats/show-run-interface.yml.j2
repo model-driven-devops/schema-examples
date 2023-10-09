@@ -1,0 +1,21 @@
+type: object
+required:
+  - {{ check_vars.wan_interface }}
+properties:
+  {{ check_vars.wan_interface }}:
+    type: object
+    required:
+      - mtu
+      - counters
+    properties:
+      counters:
+        type: object
+        required:
+          - out_collision
+        properties:
+          out_collision:
+            type: integer
+            maximum: {{ check_vars.out_collision }} 
+      mtu:
+        type: integer
+        const: {{ check_vars.mtu }}

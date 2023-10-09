@@ -1,0 +1,19 @@
+---
+mdd_tags:
+  - hq_pop
+mdd_checks:
+  # - name: Check NetFlow Export Statistics
+  #   command: 'show flow exporter statistics'
+  #   schema: 'pyats/show-flow-statistics.yml.j2'
+  #   method: cli_parse
+  #   check_vars:
+  #     exporter_name: 
+  - name: Check Netflow Exporter
+    command: 'show flow exporter'
+    schema: 'pyats/show-flow-exporter.yml.j2'
+    method: cli_parse
+    check_vars:
+      exporter_name:
+      destination_address:
+      destination_port:
+      transport_protocol:

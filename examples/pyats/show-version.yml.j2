@@ -1,0 +1,137 @@
+---
+type: object
+properties:
+  version:
+    type: object
+    properties:
+      chassis:
+        type: string
+        const: {{ check_vars.version_chassis }}
+      chassis_sn:
+        type: string
+      compiled_by:
+        type: string
+      compiled_date:
+        type: string
+      copyright_years:
+        type: string
+      curr_config_register:
+        type: string
+      disks:
+        type: object
+        properties:
+          bootflash:.:
+            type: object
+            properties:
+              disk_size:
+                type: string
+              type_of_disk:
+                type: string
+            required:
+              - disk_size
+              - type_of_disk
+        required:
+          - bootflash:.
+      hostname:
+        type: string
+      image_id:
+        type: string
+      image_type:
+        type: string
+      label:
+        type: string
+      last_reload_reason:
+        type: string
+      license_level:
+        type: string
+      license_type:
+        type: string
+      location:
+        type: string
+      main_mem:
+        type: string
+      mem_size:
+        type: object
+        properties:
+          non-volatile configuration:
+            type: string
+          physical:
+            type: string
+        required:
+          - non-volatile configuration
+          - physical
+      next_reload_license_level:
+        type: string
+      number_of_intfs:
+        type: object
+        properties:
+          Gigabit Ethernet:
+            type: string
+        required:
+          - Gigabit Ethernet
+      os:
+        type: string
+        const: {{ check_vars.version_os }}
+      platform:
+        type: string
+      processor_type:
+        type: string
+      returned_to_rom_by:
+        type: string
+      rom:
+        type: string
+      router_operating_mode:
+        type: string
+      rtr_type:
+        type: string
+      system_image:
+        type: string
+      system_restarted_at:
+        type: string
+      uptime:
+        type: string
+      uptime_this_cp:
+        type: string
+      version:
+        type: string
+        const: {{ check_vars.version_version }}
+      version_short:
+        type: string
+      xe_version:
+        type: string
+    required:
+      - chassis
+      - chassis_sn
+      - compiled_by
+      - compiled_date
+      - copyright_years
+      - curr_config_register
+      - disks
+      - hostname
+      - image_id
+      - image_type
+      - label
+      - last_reload_reason
+      - license_level
+      - license_type
+      - location
+      - main_mem
+      - mem_size
+      - next_reload_license_level
+      - number_of_intfs
+      - os
+      - platform
+      - processor_type
+      - returned_to_rom_by
+      - rom
+      - router_operating_mode
+      - rtr_type
+      - system_image
+      - system_restarted_at
+      - uptime
+      - uptime_this_cp
+      - version
+      - version_short
+      - xe_version
+required:
+  - version

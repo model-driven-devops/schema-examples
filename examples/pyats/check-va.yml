@@ -1,0 +1,78 @@
+mdd_tags:
+  - all
+mdd_checks:
+#   - name: Check version
+#     command: 'show ver'
+#     schema: 'pyats/show-version.yml.j2'
+#     method: cli_parse
+#     check_vars:
+#       version_chassis: CSR1000V
+#       version_os: IOS-XE
+#       version_version: 17.3.4a
+  - name: Check ospf neighbor
+    command: 'show ip ospf 1 neighbor'
+    schema: 'pyats/show-ip-ospf-neighbor.yml.j2'
+    method: cli_parse
+    check_vars:
+      interface: GigabitEthernet3.10
+      ospf_neighbors:
+        - ospf_neighbor: 172.16.255.1
+          neighbor: 172.16.255.1
+          address: 172.16.0.1
+          state: FULL/DROTHER
+        - ospf_neighbor: 172.16.255.2
+          neighbor: 172.16.255.2
+          address: 172.16.0.3
+          state: FULL/BDR
+# ## Checks for 100% ping target
+#   - name: Check ping
+#     command: 'ping 8.8.8.8'
+#     schema: 'pyats/ping-test.yml'
+#     method: cli_parse
+## IP route check - replace vrf with desired vrf
+  - name: Check ip route
+    command: 'show ip route vrf Mgmt-intf'
+    schema: 'pyats/show-ip-route.yml.j2'
+    method: cli_parse
+    check_vars:
+      vrf: Mgmt-intf
+      routes:
+        - route: 0.0.0.0/0
+          active: true
+          source_protocol: static
+          metric: 0
+          next_hop:
+            next_hop_list:
+              - index: 1
+                next_hop: 192.133.184.1
+        - route: 192.133.184.0/22
+          active: true
+          source_protocol: connected
+          next_hop:
+            outgoing_interface: GigabitEthernet1
+        - route: 192.133.184.1/32
+          active: true
+          metric: 0
+          source_protocol: static
+          next_hop:
+            next_hop_list:
+              - index: 1
+                next_hop: 192.133.184.1
+                outgoing_interface: GigabitEthernet1 
+## MTU interface check - replace gigabitEthernet with desired interface
+  # - name: show run interface
+  #   command: 'show interface gigabitEthernet1'
+  #   schema: 'pyats/show-run-interface.yml.j2'
+  #   method: cli_parse
+  #   check_vars:
+  #     wan_interface: GigabitEthernet1
+  #     mtu: 1500
+  #     out_collision: 1
+  # - name: show bgp vpnv4
+  #   command: 'show bgp vpnv4 u a sum'
+  #   schema: 'pyats/show-bgp-vpn.yml.j2'
+  #   method: cli_parse
+  #   check_vars:
+  #     vrf: default
+  #     neighbor: 10.255.255.1
+  #     as_number: 65100
